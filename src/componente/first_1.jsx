@@ -21,7 +21,7 @@ export function PokemonCard(){
     const {params:{id}}=useMatch()
     const {isFetching,error,pokemon}=getPokemons()
     console.log(pokemon)
-    const data=pokemon.find(pokemon=>pokemon.id===+id)
+    const data=pokemon.find(pokemon=>pokemon.id===+gid)
     if(isFetching)return(< div className="ring">Loading...<span></span></div>)
     if(error)return(<div>Somethingh went wrong</div>)
     
