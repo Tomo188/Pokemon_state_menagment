@@ -6,7 +6,6 @@ import {
   useMatch,
 
 } from "@tanstack/react-location";
-import { useQuery } from "@tanstack/react-query"
 import { useReducer } from "react";
 import {FirstQ} from "./componente/first_1"
 import { PokemonCard } from "./componente/first_1";
@@ -33,13 +32,11 @@ const routes = [
 ];
 
 function App() {
-   console.log(queryClient.getQueriesData("pokemon"))
    const initialState={data:[]};
    const reducer=(state,action)=>{
-    console.log(action.type)
-       switch(action.type){
-        case "SET POKEMON DATA":
-          return {data:"gg"}
+      switch(action.type){
+        case "SET PAGE SCROLL":
+          return {scroll:action.payload.scroll,scrollHeight:action.payload.scrollHeight}
        }
    }
    const [data,dispatch]=useReducer(reducer,initialState)
